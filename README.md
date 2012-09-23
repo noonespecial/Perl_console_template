@@ -9,7 +9,7 @@ take parts of getopts along with me onto storage devices that measured in the KB
 reinventing parts of it over and over in diverse and wonderful (awful) ways, I decided to take a moment and code
 golf a little template that could competently read command line switches.
 
-To use it, simply type in the command line switched you'd like to have recognized into the @options array. The
+To use it, simply type in the command line switches you'd like to have recognized into the @options array. The
 get_arguments function will read your command line options and place all text that comes between recognized options
 into a hash associated with the recognized option that preceded it. If there is no text, the option will still be
 present in the hash, allowing you to check if a key is defined to see if the switch was present. Everything else
