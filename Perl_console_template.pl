@@ -12,7 +12,6 @@
 #################
 use strict;
 
-
 ###############################################################################
 #                        Variables                                            #
 ###############################################################################
@@ -35,14 +34,12 @@ my %command_line_options = get_arguments($command_line_text,@options);
 ###############################################################################
 #                        Main Program                                         #
 ###############################################################################
-
 #Examples:
  #show what was passed behind an option
  print "option1 value passed: $command_line_options{'--option1'}\n";
  #indicate if an option was specified at all
  if ( defined $command_line_options{'--option2'} ) {print "option2 was given\n";}
 
- 
 ###############################################################################
 #                        Subs                                                 #
 ###############################################################################
@@ -61,10 +58,13 @@ sub get_arguments {
   my $argument_text = shift;
    $argument_text =~ s/^ *//; #remove leading spaces;
    $argument_text =~ s/ *$//; #remove trailing spaces;
+   $argument_text = " $argument_text "; #add exactly one space to front and back
   my @temp = @_;
-  my $option_list = join('|',@temp);
+  my $option_list = join('\s|',@temp) . '\s';
   my %output;
   my @detected_options = split (/($option_list)/,$argument_text);
+    map(s/^ *//, @detected_options); #remove leading spaces;
+    map(s/ *$//, @detected_options); #remove trailing spaces;
   for (my $i=1; $i<=@detected_options-1; $i=$i+2) {
     $output{@detected_options[$i]}=@detected_options[$i+1];
      $output{@detected_options[$i]} =~ s/^ *//; #remove leading spaces;
