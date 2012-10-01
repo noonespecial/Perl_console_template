@@ -16,6 +16,11 @@ present in the hash, allowing you to check if a key is defined to see if the swi
 on the command line is ignored. There are no checks for "valid" options as these will likely be considered values 
 of the switch immediately preceding them.
 
+All text occurring before any recognized switches will be in the _default entry in the hash. This lets you do 
+something like this:
+
+./Perl_console_template.pl /work/on/this/file --with --these --options
+
 Two examples are given in the main section showing how to read the value passed with a switch and simply detecting
 if a switch has been passed.
 
