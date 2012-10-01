@@ -15,7 +15,6 @@ use strict;
 ###############################################################################
 #                        Variables                                            #
 ###############################################################################
-
 ##### From Command Line #####
 chomp (my $command_line_text = join(" ", @ARGV));
 #### Insert recognized command line options here ####
@@ -27,7 +26,6 @@ my @options= (
   "-o"
 );
 #####################################################
-
 ##### Local Variables ##### 
 my %command_line_options = get_arguments($command_line_text,@options);
 
@@ -39,11 +37,11 @@ my %command_line_options = get_arguments($command_line_text,@options);
  print "option1 value passed: $command_line_options{'--option1'}\n";
  #indicate if an option was specified at all
  if ( defined $command_line_options{'--option2'} ) {print "option2 was given\n";}
+ print "Default : $command_line_options{'_default'}\n";
 
 ###############################################################################
 #                        Subs                                                 #
 ###############################################################################
-
 ### print_usage ###########################################################
 sub print_usage{
    print "Summary of what the script does.\n";
@@ -70,5 +68,7 @@ sub get_arguments {
      $output{@detected_options[$i]} =~ s/^ *//; #remove leading spaces;
      $output{@detected_options[$i]} =~ s/ *$//; #remove trailing spaces;
   }
+ #Any text that appears before any options should go in the output hash as _default.
+  $output{'_default'}=@detected_options[0];
  return %output;
 }
