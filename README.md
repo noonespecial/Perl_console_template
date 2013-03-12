@@ -3,7 +3,7 @@ Perl_console_template
 
 Fast simple perl console application template that can accept command line switches but has zero dependencies.
 
-Yet another little template to quickly create little perl console apps. This one came about while doing work on 
+Yet another little template to quickly create perl console apps. This one came about while doing work on 
 small embedded systems that had somewhat less than complete perl environments. Rather than constantly trying to 
 take parts of getopts along with me onto storage devices that measured in the KB's free, or worse, clumsily 
 reinventing parts of it over and over in diverse and wonderful (awful) ways, I decided to take a moment and code

@@ -7,9 +7,7 @@
 #                                                                             #
 ###############################################################################
 
-#################
-#  Uses         #
-#################
+#### Use ######################################################################
 use strict;
 
 ###############################################################################
@@ -17,6 +15,7 @@ use strict;
 ###############################################################################
 ##### From Command Line #####
 chomp (my $command_line_text = join(" ", @ARGV));
+
 #### Insert recognized command line options here ####
 my @options= ( 
   #the following are examples, replace with your own.
@@ -26,6 +25,7 @@ my @options= (
   "-o"
 );
 #####################################################
+
 ##### Local Variables ##### 
 my %command_line_options = get_arguments($command_line_text,@options);
 
