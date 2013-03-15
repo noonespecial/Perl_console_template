@@ -57,8 +57,7 @@ sub get_arguments {
    $argument_text =~ s/^ *//; #remove leading spaces;
    $argument_text =~ s/ *$//; #remove trailing spaces;
    $argument_text = " $argument_text "; #add exactly one space to front and back
-  my @temp = @_;
-  my $option_list = join('\s|',@temp) . '\s';
+  my $option_list = join('\s|',@_) . '\s';
   my %output;
   my @detected_options = split (/($option_list)/,$argument_text);
     map(s/^ *//, @detected_options); #remove leading spaces;
